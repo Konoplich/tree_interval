@@ -187,6 +187,9 @@ node_t* insert_rec(ROOT, void_ref_t ref)
 		}
 	}
 
+    if(p_root->max < ref.min)
+        p_root->max = ref.min;
+
 	// If necessary, apply a rotation to get the correct representation
 	// in the parent node as we're backing out of the recursion.  This
 	// places the tree in a state where the parent can safely apply a
