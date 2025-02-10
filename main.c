@@ -20,7 +20,7 @@ int main(int argc, char** argv)
         printf("error 1\n");
 	    exit(1);
     }
-    printf("1,2,3,4\n");
+    printf("5,10,12,15,17,30\n");
 
     ins(&p_tree, 5, 20);
     ins(&p_tree, 10, 30);

@@ -187,9 +187,6 @@ node_t* insert_rec(ROOT, void_ref_t ref)
 		}
 	}
 
-    if(p_root->max < ref.min)
-        p_root->max = ref.min;
-
 	// If necessary, apply a rotation to get the correct representation
 	// in the parent node as we're backing out of the recursion.  This
 	// places the tree in a state where the parent can safely apply a
@@ -205,6 +202,13 @@ node_t* insert_rec(ROOT, void_ref_t ref)
 	if (node_is_red(p_root->p_left) && node_is_red(p_root->p_left->p_left)) {
 		p_root = rotate_right(p_root);
 	}
+	p("ref: %d\n", p_root->ref.min);
+	if(p_root->max < ref.max)
+	{
+		p_root->max = ref.max;
+		p("set max: %d\n", p_root->max);
+	}
+
 
 	// If we perform the color flip here, the tree is assembled as a
 	// mapping of a 2-3 tree.
